@@ -1,0 +1,13 @@
+.card {
+    width: 358px;
+    height: 326px;
+    opacity: 70%;
+    background-color: black;
+}
+
+.login-title {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    z-index: 1;
+}
