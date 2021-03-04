@@ -1,0 +1,58 @@
+<div class="main-panel card border-0">
+
+    <ul ngbNav #nav="ngbNav" class="nav-tabs border-0">
+
+        <li ngbNavItem>
+            <a ngbNavLink>NASA APOD</a>
+
+            <ng-template ngbNavContent>
+                <ng-container *ngTemplateOutlet="carousel"></ng-container>
+            </ng-template>
+        </li>
+
+        <li ngbNavItem>
+            <a ngbNavLink>POKÉMON</a>
+
+            <ng-template ngbNavContent>
+                <ng-container *ngTemplateOutlet="pokemon"></ng-container>
+            </ng-template>
+        </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+
+</div>
+
+<ng-template #pokemon>
+    <div class="pokemon container">
+
+
+    </div>
+</ng-template>
+
+
+<ng-template #carousel>
+
+    <div class="carousel container">
+        <ngb-carousel *ngIf="nasaData$ | async as nasaData">
+            <ng-template ngbSlide *ngFor="let data of nasaData">
+
+                <div class="picsum-img-wrapper">
+                    <img src="{{data.url}}" alt="">
+                </div>
+
+                <div class="carousel-caption">
+                    <h4>{{data.title}} / {{data.date}} </h4>
+                    <!-- Slice cut the array in the 50 position. -->
+                    <p>{{data.explanation |slice:0:51}}</p>
+
+                    <footer>
+                        <!-- The first data 04-03-2021, have't copyright data in his JSON-->
+                        <p class="copyright-text" *ngIf="data.copyright"> Copyright: {{data.copyright}}</p>
+                    </footer>
+                </div>
+
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+</ng-template>

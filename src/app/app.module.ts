@@ -11,6 +11,7 @@ import { LoginComponent } from './view/login/login.component';
 import { PanelLoginComponent } from './components/login/panel-login/panel-login.component';
 import { DataPanelComponent } from './view/data-panel/data-panel.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfoPanelComponent } from './components/account-data/info-panel/info-panel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginFormComponent,
     LoginComponent,
     PanelLoginComponent,
-    DataPanelComponent
+    DataPanelComponent,
+    InfoPanelComponent
   ],
   imports: [
     BrowserModule,

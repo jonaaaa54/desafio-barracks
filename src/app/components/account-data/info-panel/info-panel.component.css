@@ -1,0 +1,22 @@
+.main-panel {
+    background-color: #A1A1A1;
+    width: 1246px;
+    height: 499px;
+}
+
+.nav-tabs {
+    background-color: #F2F2F2;
+}
+
+.carousel {
+    margin-top: 1rem;
+}
+
+.picsum-img-wrapper {
+    width: 1000px;
+    height: 400px;
+}
+
+.copyright-text {
+    color: rgb(254, 254, 254, 50%);
+}
