@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NasaService } from '../../../services/api-rest/nasa.service';
 import { Observable } from 'rxjs';
 import { NasaData } from '../../../models/nasa-data';
-import { PokeData } from 'src/app/models/poke-data';
+import {  Pokemon } from 'src/app/models/poke-data';
+import { PokeapiService } from '../../../services/api-rest/pokeapi.service';
+
 
 @Component({
   selector: 'app-info-panel',
@@ -12,15 +14,42 @@ import { PokeData } from 'src/app/models/poke-data';
 export class InfoPanelComponent implements OnInit {
 
   nasaData$ = new Observable<NasaData[] | null>();
-  pokeData$= new Observable<PokeData[] | null>();
 
-  constructor(private nasaService: NasaService) { }
+  maxPokemon: number = 150;
+  allPokemons: Pokemon[] = [];
+  seletedPokemon: string | undefined;
 
-  ngOnInit(): void { this.getNasaData()}
+  constructor(private nasaService: NasaService,
+    private pokeApiService :PokeapiService) { }
+
+  ngOnInit(): void {
+  this.getNasaData()
+  this.getPokemonData()
+
+  }
+
+
+
+  getPokemonData(): void{
+    for (let i = 0 ; i< this.maxPokemon ; i++){
+      this.pokeApiService.getPokemons(i+1)
+      .subscribe(
+        data=>{
+
+        let pokemonData = new Pokemon(data.name, data.sprite);
+        console.log(data.sprite,data.name)
+        this.allPokemons.push(pokemonData);
+        } );
+    }
+  }
+
+  pokemonSelected(pokemon: string): void{
+    this.seletedPokemon = pokemon;
+  }
+
 
   getNasaData(): void{
     this.nasaData$ =  this.nasaService.getThreeData(this.twoDaysDateAgo());
-    this.nasaData$.subscribe(res => console.log(res));
   }
 
   twoDaysDateAgo(): string{

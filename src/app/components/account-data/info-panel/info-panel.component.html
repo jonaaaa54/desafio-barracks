@@ -23,8 +23,19 @@
 </div>
 
 <ng-template #pokemon>
+
     <div class="pokemon container">
 
+        <div ngbDropdown class="d-flex justify-content-center">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pokemons</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let pokemon of allPokemons" (click)="pokemonSelected(pokemon.sprite)">{{pokemon.name}}</button>
+            </div>
+        </div>
+
+        <div class="container" *ngIf="seletedPokemon">
+            <img src="selectedPokemon.sprite" alt="">
+        </div>
 
     </div>
 </ng-template>
@@ -32,12 +43,12 @@
 
 <ng-template #carousel>
 
-    <div class="carousel container">
+    <div class="carousel card-body container">
         <ngb-carousel *ngIf="nasaData$ | async as nasaData">
             <ng-template ngbSlide *ngFor="let data of nasaData">
 
                 <div class="picsum-img-wrapper">
-                    <img src="{{data.url}}" alt="">
+                    <img class="carousel-img" src="{{data.url}}" alt="">
                 </div>
 
                 <div class="carousel-caption">

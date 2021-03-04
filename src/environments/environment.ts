@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   logInBarracks: 'https://beta-api.barracks.gg/v2/Auth/Authenticate',
   nasaApi: 'https://api.nasa.gov/planetary/apod?',
-  pokeApi: 'https://pokeapi.co/api/v2'
+  pokeApi: 'https://pokeapi.co/api/v2/pokemon/'
 };
 
 /*

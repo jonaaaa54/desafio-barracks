@@ -9,11 +9,11 @@
 }
 
 .carousel {
-    margin-top: 1rem;
+    width: 63rem;
 }
 
-.picsum-img-wrapper {
-    width: 1000px;
+.carousel-img {
+    width: 63rem;
     height: 400px;
 }
 

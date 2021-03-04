@@ -1,4 +1,3 @@
-export interface PokeData{
-  name: string;
-  img: string;
+export class Pokemon{
+  constructor(public name:string, public sprite:string){}
 }
