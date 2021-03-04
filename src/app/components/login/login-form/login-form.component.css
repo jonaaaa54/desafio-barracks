@@ -1,0 +1,20 @@
+.form-control {
+    border-color: #3E3E3E;
+    background-color: #3E3E3E;
+}
+
+.form-control::placeholder,
+.form-control:focus,
+input {
+    color: white;
+}
+
+.btn {
+    border-color: white;
+    color: rgb(254, 254, 254, 50%);
+    margin-top: 3.7rem;
+}
+
+.btn:hover {
+    border-color: burlywood;
+}

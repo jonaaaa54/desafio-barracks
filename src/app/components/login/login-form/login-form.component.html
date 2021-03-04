@@ -1,1 +1,25 @@
-<p>login-form works!</p>
+<form [formGroup]="credentials" (ngSubmit)="signIn()">
+
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="mail" placeholder="Usuario">
+
+        <!-- User data validation. -->
+        <div *ngIf="mail?.touched && mail?.invalid" class="alert alert-danger">
+            <div *ngIf="mail?.errors!.required"> Campo usuario es requerido.</div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+
+        <!-- Password validation. -->
+        <div *ngIf="password?.touched && password?.invalid" class="alert alert-danger">
+            <div *ngIf="password?.errors!.required"> Campo usuario es requerido.</div>
+        </div>
+    </div>
+
+    <!-- Button invalid if the form is't complete. -->
+    <button type="submit" class="btn btn-block" [disabled]="!credentials.valid">Ingresar</button>
+
+</form>

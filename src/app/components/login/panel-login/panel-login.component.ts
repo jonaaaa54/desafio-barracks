@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelLoginComponent implements OnInit {
 
-  loginTitle='LOGIN'
+
 
   constructor() { }
 
